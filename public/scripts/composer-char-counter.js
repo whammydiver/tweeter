@@ -1,0 +1,21 @@
+let charCount = 140;
+console.log(charCount);
+
+$(document).ready(function() {
+  let counter = document.getElementById("counter");
+  console.log(counter);
+  const textarea = document.getElementById("tweet-text-box");
+  
+  const charCounter = function() {
+    textarea.addEventListener("input", (event) => {
+      if (event.inputType !== "deleteContentBackward") {
+        charCount -= 1;
+      } else {
+        charCount += 1;
+      }
+      console.log(event.inputType, charCount);
+      return charCount;
+    });
+  };
+  charCounter();
+});
