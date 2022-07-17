@@ -8,11 +8,13 @@ $(document).ready(function() {
   
   const charCounter = function() {
     textarea.addEventListener("input", (event) => {
-      if (event.inputType !== "deleteContentBackward") {
-        charCount -= 1;
-      } else {
-        charCount += 1;
-      }
+      console.log(event);
+      charCount = 140 - (textarea.value.length);
+      // if (event.inputType !== "deleteContentBackward") {
+      //   charCount -= 1;
+      // } else {
+      //   charCount += 1;
+      // }
       console.log(event.inputType, charCount);
       return charCount;
     });

@@ -1,0 +1,31 @@
+.tweetContainer {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  justify-content: center;
+}
+
+.tweetContainerHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.headerLeftContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.tweetContainerFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.rollOverIcons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
