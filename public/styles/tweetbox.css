@@ -1,7 +1,10 @@
-.tweetContainer {
+#tweetContainer {
+  margin: 25px;
+  border: 3px solid black;
+  padding: 25px;
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   justify-content: center;
 }
 
@@ -26,6 +29,23 @@
 .rollOverIcons {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding-right: 15px;
 }
 
+.tweetText {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid black;
+  font-weight: 600;
+}
+
+#dateStamp {
+  padding-left: 15px;
+  font-size: 0.4cm;
+}
+
+.shadow {
+  box-shadow: 10px 5px 5px grey;
+}
