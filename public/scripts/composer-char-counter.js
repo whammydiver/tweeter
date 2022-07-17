@@ -9,9 +9,9 @@ $(document).ready(function() {
       charCount = 140 - (textarea.value.length);
       counter.innerHTML = charCount;
       if (charCount < 0) {
-        counter.classList.add("redCounter");
+        counter.classList.add("redFormat");
       } else {
-        counter.classList.remove("redCounter");
+        counter.classList.remove("redFormat");
       }
     });
   };
