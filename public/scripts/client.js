@@ -6,49 +6,56 @@
 
 
 $(document).ready(function() {
-  const tweetContainer = document.getElementById("tweetContainer");
-  const heart = document.getElementById("heart");
-  const flag = document.getElementById("flag");
-  const retweet = document.getElementById("retweet");
+  console.log("ready");
 
-  tweetContainer.addEventListener("mouseover", () => {
-    tweetContainer.classList.add("shadow");
-  });
+  const $tweet = createTweetElement(tweetData);
 
-  tweetContainer.addEventListener("mouseout", () => {
-    tweetContainer.classList.remove("shadow"); 
-  })
+  const container = $(".tweetsContainer");
+  console.log(container);
+  container.append($tweet);
 
-  heart.addEventListener("mouseover", () => {
-    heart.classList.add("redFormat");
-  });
-
-  heart.addEventListener("mouseout", () => {
-    heart.classList.remove("redFormat"); 
-  })
-
-  flag.addEventListener("mouseover", () => {
-    flag.classList.add("redFormat");
-  });
-
-  flag.addEventListener("mouseout", () => {
-    flag.classList.remove("redFormat"); 
-  })
-
-  retweet.addEventListener("mouseover", () => {
-    retweet.classList.add("redFormat");
-  });
-
-  retweet.addEventListener("mouseout", () => {
-    retweet.classList.remove("redFormat"); 
-  })
+  
+})
 
 
+  const tweetData = {
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png",
+        "handle": "@SirIsaac"
+      },
+    "content": {
+        "text": "If I have seen further it is by standing on the shoulders of giants"
+      },
+    "created_at": 1461116232227
+  }
+
+  
+
+  const createTweetElement = function(tweetData) {
+    const article = `
+    <article class="tweet">
+    <header class="tweetContainerHeader">
+    <div class="headerLeftContent">
+    <div class="headerAvatar"><img src="${tweetData.user.avatars}"></div>
+    <div class="user">${tweetData.user.name}</div>
+    </div>
+    <div class="userHandle">${tweetData.user.handle}</div>
+    </header>
+    <div class="tweetText">${tweetData.content.text}</div>
+    <footer class="tweetContainerFooter">
+    <div class="dateStamp">${timeago.format(tweetData.created_at)}</div>
+    <div class="rollOverIcons">
+    <i id="flag" class="fa-solid fa-flag"></i>
+    <i id="retweet" class="fa-solid fa-retweet"></i>
+    <i id="heart" class="fa-solid fa-heart"></i>
+    <div class="likeCounter">2</div>
+    </div>
+    </footer>
+    </article>`
+    
+    return article;
+  }
+  
 
 
-
-
-
-
-
-});

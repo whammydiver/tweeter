@@ -22,11 +22,6 @@ body {
 }
 
 
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
 main {
   margin-left: 5%;
   margin-right: 5%;
@@ -34,6 +29,13 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* class added and removed to rollover items in tweetbox, and to the 
+textbox character counter when it falls below 0. */
+
+.tweetsContainer {
+  width: 100%
 }
 
 .redFormat {

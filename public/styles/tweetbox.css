@@ -1,10 +1,9 @@
-#tweetContainer {
+.tweet {
   margin: 25px;
   border: 3px solid black;
   padding: 25px;
   display: flex;
   flex-direction: column;
-  width: 100%;
   justify-content: center;
 }
 
@@ -41,11 +40,19 @@
   font-weight: 600;
 }
 
-#dateStamp {
+.dateStamp {
   padding-left: 15px;
   font-size: 0.4cm;
 }
 
 .shadow {
   box-shadow: 10px 5px 5px grey;
+}
+
+.redFormat {
+  color: red;
+}
+
+.fa-solid:hover {
+  color: red;
 }
