@@ -1,33 +1,26 @@
 $(document).ready(function() {
 
-  renderTweets(data);
-
-});
-
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
+  const loadTweets = function() {
+    $.ajax("/tweets", {method: "Get"})
+      .then(data =>{
+        renderTweets(data);
+      })
   }
-]
+  $("#newTweet").submit(function(event) {
+    event.preventDefault();
+    const data = ($("textarea").serialize());
+    if (data === "text=") {
+      alert("tweet cannot be submitted empty!");
+    } else if (data.length > 145) {
+      console.log(data.length);
+      alert("tweet exceeds 140 character limit");
+    } else {
+      jQuery.post("/tweets", data);
+      location.reload(true);
+    };
+  })
+  loadTweets();
+});
 
 const renderTweets = function(tweets) {
   const container = $(".tweetsContainer");

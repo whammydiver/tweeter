@@ -59,7 +59,7 @@
   <main>
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
-      <form method="POST" action="/tweets">
+      <form id="newTweet" method="POST" action="/tweets">
         <label for="tweet-text">What are you humming about?</label><br>
         <textarea name="text" id="tweet-text-box"></textarea>
         <div class="submitCount">
@@ -70,26 +70,6 @@
     </section>
 
     <section class="tweetsContainer">
-
-      <article class="tweet">
-        <header class="tweetContainerHeader">
-          <div class="headerLeftContent">
-            <div class="headerAvatar">Avatar</div>
-            <div class="user">Paul Taylor</div>
-          </div>
-          <div class="userHandle">@PaulTaylor</div>
-        </header>
-        <div class="tweetText">What's up with airports?</div>
-        <footer class="tweetContainerFooter">
-          <div class="dateStamp">10 days ago</div>
-          <div class="rollOverIcons">
-            <i class="fa-solid fa-flag"></i>
-            <i class="fa-solid fa-retweet"></i>
-            <i class="fa-solid fa-heart"></i>
-            <div class="likeCounter">2</div>
-          </div>
-        </footer>
-      </article>
 
     </section>
   </main>
