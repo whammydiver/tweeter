@@ -34,3 +34,12 @@
   font-family: 'Bungee', cursive;
 }
 
+.errorMSG {
+  display: flex;
+  flex-direction: row;
+  border: solid red;
+  padding: 1em;
+  margin: 1em;
+  justify-content: center;
+  color: red;
+}

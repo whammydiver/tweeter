@@ -6,13 +6,19 @@ $(document).ready(function() {
         renderTweets(data);
       })
   }
+
+  const alerts = function(str) {
+    const alertBox = $(".errorMSG");
+    alertBox.append(str);
+  }
+
   $("#newTweet").submit(function(event) {
     event.preventDefault();
     const data = ($("textarea").serialize());
     if ($("textarea").val().length === 0) {
-      alert("tweet cannot be submitted empty!");
+      alerts("Tweet cannot be submitted empty!");
     } else if ($("textarea").val().length > 140) {
-      alert("tweet exceeds 140 character limit");
+      alerts("Tweet exceeds arbitrary 140 character limit, as evidenced by the character counter. Try again, loser.");
     } else {
       jQuery.post("/tweets", data);
       location.reload();
