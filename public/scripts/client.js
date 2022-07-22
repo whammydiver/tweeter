@@ -9,14 +9,13 @@ $(document).ready(function() {
   $("#newTweet").submit(function(event) {
     event.preventDefault();
     const data = ($("textarea").serialize());
-    if (data === "text=") {
+    if ($("textarea").val().length === 0) {
       alert("tweet cannot be submitted empty!");
-    } else if (data.length > 145) {
-      console.log(data.length);
+    } else if ($("textarea").val().length > 140) {
       alert("tweet exceeds 140 character limit");
     } else {
       jQuery.post("/tweets", data);
-      location.reload(true);
+      location.reload();
     };
   })
   loadTweets();
@@ -48,7 +47,7 @@ const createTweetElement = function(tweetData) {
             <i id="flag" class="fa-solid fa-flag"></i>
             <i id="retweet" class="fa-solid fa-retweet"></i>
             <i id="heart" class="fa-solid fa-heart"></i>
-          <div class="likeCounter">2</div>
+          <div class="likeCounter"></div>
         </div>
       </footer>
     </article>`
