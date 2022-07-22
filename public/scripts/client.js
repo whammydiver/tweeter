@@ -29,6 +29,12 @@ const renderTweets = function(tweets) {
   };
 };
 
+const textMaker = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 const createTweetElement = function(tweetData) {
 
   const article = `
@@ -40,7 +46,7 @@ const createTweetElement = function(tweetData) {
         </div>
         <div class="userHandle">${tweetData.user.handle}</div>
       </header>
-      <div class="tweetText">${tweetData.content.text}</div>
+      <div class="tweetText">${textMaker(tweetData.content.text)}</div>
       <footer class="tweetContainerFooter">
         <div class="dateStamp">${timeago.format(tweetData.created_at)}</div>
           <div class="rollOverIcons">
