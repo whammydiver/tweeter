@@ -41,3 +41,30 @@ textbox character counter when it falls below 0. */
 .redFormat {
   color: red;
 }
+
+.errorMessage {
+  display: flex;
+  flex-direction: row;
+  border: solid red;
+  padding: 1em;
+  margin: 1em;
+  justify-content: center;
+  color: red;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  z-index: 999;
+  justify-content: flex-end;
+}
+
+#top {
+  z-index: 999;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: #4056a1;
+  color: white;
+}
+

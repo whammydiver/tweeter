@@ -6,8 +6,8 @@
   width: 100%;
   background-color: #6fa140;
   color: #f4e5e5;
-  background-color: #ae738e;
-  background-image: url("https://www.transparenttextures.com/patterns/argyle.png");
+  background-color: #9f9f67;
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
 }
 
 #avatar {
@@ -19,4 +19,6 @@
 #name {
   display: flex;
   justify-content: center;
+  color: #4056a1;
+  text-shadow: 1px 1px #f6f6ef;
 }

@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $(".errorMSG").hide();
+  $(".errorMessage").hide();
 
   $(".fa-angles-down").on("click", function() {
     if ($(".new-tweet").is(":hidden")) {
@@ -16,9 +16,9 @@ $(document).ready(function() {
     event.preventDefault();
     const data = ($("textarea").serialize());
     if ($("textarea").val().length === 0) {
-      alerts("Tweet cannot be submitted empty!");
+      alerts("You cannot submit a blank tweet. Please enter some text before tweeting.");
     } else if ($("textarea").val().length > 140) {
-      alerts("Tweet exceeds arbitrary 140 character limit, as evidenced by the character counter. Try again, loser.");
+      alerts("Tweet exceeds the 140 character limit, as evidenced by the character counter. Try again, more succinctly.");
     } else {
       $.post("/tweets", data)
       .then(() => {
@@ -37,9 +37,8 @@ const loadTweets = () => {
 }
 
 const alerts = function(str) {
-  // $(".errorMSG").css("display","flex");
-  $(".errorMSG").html(str);
-  $(".errorMSG").show();
+  $(".errorMessage").html(str);
+  $(".errorMessage").show();
 }
 
 
