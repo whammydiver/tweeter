@@ -27,14 +27,14 @@ const alerts = function(str) {
 };
 
 const renderTweets = function(tweets) {
-  const container = $(".tweetsContainer")
-    for (let tweet of tweets) {
+  const container = $(".tweetsContainer");
+  for (let tweet of tweets) {
     let renderedTweet = createTweetElement(tweet);
     container.prepend(renderedTweet);
-  };
+  }
 };
 
-const safeTextMaker = function (str) {
+const safeTextMaker = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -61,7 +61,7 @@ const createTweetElement = function(tweetData) {
           <div class="likeCounter"></div>
         </div>
       </footer>
-    </article>`
+    </article>`;
   
   return article;
 
@@ -87,8 +87,8 @@ const newTweet = function() {
       alerts("Tweet exceeds the 140 character limit, as evidenced by the character counter. Try again, more succinctly.");
     } else {
       $.post("/tweets", data)
-      .then(() => {
-        loadTweets();
+        .then(() => {
+          loadTweets();
       })
       location.reload();
     };
