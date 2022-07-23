@@ -1,18 +1,18 @@
 $(document).ready(function() {
 
-  const loadTweets = function() {
-    $.ajax("/tweets", {method: "Get"})
-      .then(data =>{
-        renderTweets(data);
-      })
-  }
+  $(".errorMSG").hide();
 
-  const alerts = function(str) {
-    const alertBox = $(".errorMSG");
-    alertBox.append(str);
-  }
+  $(".fa-angles-down").on("click", function() {
+    if ($(".new-tweet").is(":hidden")) {
+      $(".new-tweet").slideDown("fast");
+    } else {
+      $(".new-tweet").slideUp("fast");
+    }
+  });
 
-  $("#newTweet").submit(function(event) {
+  loadTweets();
+  
+  $("#newTweet").on("submit", function(event) {
     event.preventDefault();
     const data = ($("textarea").serialize());
     if ($("textarea").val().length === 0) {
@@ -20,26 +20,45 @@ $(document).ready(function() {
     } else if ($("textarea").val().length > 140) {
       alerts("Tweet exceeds arbitrary 140 character limit, as evidenced by the character counter. Try again, loser.");
     } else {
-      jQuery.post("/tweets", data);
+      $.post("/tweets", data)
+      .then(() => {
+        loadTweets();
+      })
       location.reload();
     };
   })
-  loadTweets();
 });
 
+const loadTweets = () => {
+  $.get("/tweets")
+    .then(data => {
+      renderTweets(data);
+    })
+}
+
+const alerts = function(str) {
+  // $(".errorMSG").css("display","flex");
+  $(".errorMSG").html(str);
+  $(".errorMSG").show();
+}
+
+
+
 const renderTweets = function(tweets) {
-  const container = $(".tweetsContainer");
-  for (let tweet of tweets) {
+  const container = $(".tweetsContainer")
+    for (let tweet of tweets) {
     let renderedTweet = createTweetElement(tweet);
-    container.append(renderedTweet);
+    container.prepend(renderedTweet);
   };
 };
 
-const textMaker = function (str) {
+const safeTextMaker = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
+
+
 
 const createTweetElement = function(tweetData) {
 
@@ -52,7 +71,7 @@ const createTweetElement = function(tweetData) {
         </div>
         <div class="userHandle">${tweetData.user.handle}</div>
       </header>
-      <div class="tweetText">${textMaker(tweetData.content.text)}</div>
+      <div class="tweetText">${safeTextMaker(tweetData.content.text)}</div>
       <footer class="tweetContainerFooter">
         <div class="dateStamp">${timeago.format(tweetData.created_at)}</div>
           <div class="rollOverIcons">
