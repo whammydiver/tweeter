@@ -29,15 +29,9 @@
 
 .fa-angles-down {
   color: red;
-}
-
-@keyframes bouncingArrow {
-  0% {     transform: translateY(0);   }   50% {     transform: translateY(4px);   }   100% {     transform: translateY(0);   }
-}
-
-.fa-angles-down {
-  animation-name: bouncingArrow;
+  animation-name: bouncing;
   animation-duration: 1s;
   animation-iteration-count: infinite;
 }
+
 
