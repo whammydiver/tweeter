@@ -89,11 +89,11 @@ const newTweet = function() {
       $.post("/tweets", data)
         .then(() => {
           loadTweets();
-      })
+        });
       location.reload();
-    };
-  })
-}
+    }
+  });
+};
 
 const returnButton = function() {
   $(window).scroll(() => {
@@ -105,6 +105,6 @@ const returnButton = function() {
   });
   $("#top").on("click", () => {
     $("html, body").animate({scrollTop: 0}, "fast");
-  })
+  });
 };
 

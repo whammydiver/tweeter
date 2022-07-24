@@ -1,5 +1,3 @@
-let charCount = 140;
-
 $(document).ready(function() {
   
   $("#tweet-text-box").on("input", function() {
@@ -11,6 +9,6 @@ $(document).ready(function() {
     } else {
       counter.removeClass("redFormat");
     }
-  })
+  });
 
 });
