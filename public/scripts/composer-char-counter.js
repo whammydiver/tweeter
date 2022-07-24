@@ -1,5 +1,12 @@
+
 $(document).ready(function() {
   
+  textCountdown();
+  
+});
+
+// manages text counter
+const textCountdown = function() {
   $("#tweet-text-box").on("input", function() {
     const charCount = 140 - $(this).val().length;
     const counter = $(this).siblings(".submitCount").children(".counter");
@@ -10,5 +17,4 @@ $(document).ready(function() {
       counter.removeClass("redFormat");
     }
   });
-
-});
+}

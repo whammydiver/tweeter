@@ -40,6 +40,7 @@ main {
   width: 90%;
 }
 
+/* added to counter when < 0 */
 .redFormat {
   color: red;
 }
@@ -54,6 +55,7 @@ main {
   color: red;
 }
 
+/* back to top button styling */
 #top {
   z-index: 999;
   height: 80px;
@@ -71,15 +73,19 @@ main {
 
 @keyframes bouncing {
   0% {
+    transform: translateX(0);
     transform: translateY(0);
   }
   50% {
+    transform: translateX(0);
     transform: translateY(-4px);
   }
   100% {
+    transform: translateX(0);
     transform: translateY(0);
   }
 }
+
 @media only screen and (min-width: 1024px) {
   main {
     width: 66.7%;
