@@ -18,7 +18,7 @@ interactive elements of the page include the text box itself, the submission but
 
 Here's a few of the elements in action:
 
-[![demo video](/public/images/Tweeter3.png)](/public/images/TweeterDemoVideo.mov)
+[![demo video](/public/images/Tweeter3.png)](https://www.dropbox.com/s/8lnup82f9o0r18f/Screen%20Recording%202022-07-23%20at%207.42.54%20PM.mov?dl=0)
 
 Enjoy fooling around!
 
