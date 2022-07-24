@@ -17,4 +17,4 @@ const textCountdown = function() {
       counter.removeClass("redFormat");
     }
   });
-}
+};

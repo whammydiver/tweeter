@@ -77,9 +77,9 @@ const newTweet = function() {
       alerts("Tweet exceeds the 140 character limit, as evidenced by the character counter. Try again, more succinctly.");
     } else {
       $.post("/tweets", data)
-      .then(() => {
-        loadTweets();
-      });
+        .then(() => {
+          loadTweets();
+        });
       location.reload();
     }
   });
@@ -89,7 +89,7 @@ const newTweet = function() {
 const alerts = function(str) {
   $(".errorMessage").html(str);
   $(".errorMessage").show();
-};  
+};
 
 // toggles hide/show tweetbox input
 const tweetSlider = function() {
